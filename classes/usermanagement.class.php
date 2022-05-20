@@ -748,9 +748,6 @@ class usermanagement
 
         $results_reg_user = $this->db_query_obj->sql_insert_qury("$sql3");
 
-
-
-
         return $results_reg_user;
     }
 
@@ -1096,5 +1093,17 @@ class usermanagement
 
 
         ';
+    }
+
+    // create user account
+    public function create_new_user($first_name, $last_name, $nat_id, $phone_number, $username, $user_email, $password, $user_group, $access_level_id){
+
+        $account_status = 1;
+
+        $sql3 = "INSERT INTO `users_admin`(`first_name`, `last_name`, `nat_id`, `phone_number`, `username`, `user_email`, `password`, `account_status`, `user_group`, `access_level_id`) VALUES ('$first_name', '$last_name', '$nat_id', '$phone_number', '$username', '$user_email', '$password','$account_status', '$user_group', '$access_level_id')";
+
+        $results_reg_user = $this->db_query_obj->sql_insert_qury("$sql3");
+
+        return $results_reg_user;
     }
 }
