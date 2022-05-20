@@ -1,0 +1,86 @@
+<?php $dashboard = 'active'; ?>
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+<!--begin::Head-->
+
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+
+<head>
+
+   <?php require 'includes/admin/head.php'; ?>
+   <!--End::Google Tag Manager -->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+
+<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+   <!--Begin::Google Tag Manager (noscript) -->
+   <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FS8GGP" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+   </noscript>
+   <!--End::Google Tag Manager (noscript) -->
+   <!--begin::Main-->
+   <!--begin::Root-->
+   <div class="d-flex flex-column flex-root">
+      <!--begin::Page-->
+      <div class="page d-flex flex-row flex-column-fluid">
+         <!--begin::Aside-->
+
+         <?php require 'includes/admin/side_nav.php'; ?>
+         <!--end::Aside-->
+         <!--begin::Wrapper-->
+         <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+            <!--begin::Header-->
+
+            <?php require 'includes/admin/header.php'; ?>
+            <!--end::Header-->
+            <!--begin::Content-->
+            <?php
+            if (isset($_GET['id'])) {
+               goto _default;
+            } else if (isset($_GET['action'])) {
+
+               if ($_GET['action'] == 'notifications') {
+
+                  require 'views/notifications/notifications.php';
+               } else if ($_GET['action'] == 'notification_details') {
+
+                  require 'views/notifications/notification_details.php';
+               } else if ($_GET['action'] == 'view_notification') {
+
+                  require 'views/notifications/view_notification.php';
+               }
+            } else {
+               _default:
+               require 'views/dashboard/dashboard.php';
+            }
+
+
+
+            ?>
+            <!--end::Content-->
+            <!--begin::Footer-->
+
+            <!--end::Footer-->
+         </div>
+         <!--end::Wrapper-->
+      </div>
+      <!--end::Page-->
+   </div>
+   <!--end::Root-->
+   <!--begin::Drawers-->
+
+
+
+   <?php require 'includes/admin/scripts.php'; ?>
+
+   <!--end::Page Custom Javascript-->
+   <!--end::Javascript-->
+</body>
+<!--end::Body-->
+
+</html>

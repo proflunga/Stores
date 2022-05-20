@@ -1,0 +1,29 @@
+<script>
+
+// A $( document ).ready() block.
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
+
+
+
+//get url parameter (c_id)
+const queryString = window.location.search; 
+const urlParams = new URLSearchParams(queryString);
+
+const c_id = urlParams.get('c_id');
+
+ 
+
+</script>
+
+
+<!-- include menu ******************* -->
+<script> 
+    $(function(){
+        $("#cust_menu_div").load("views/customers/includes/menu.html"); 
+    });
+</script>    
+<div id="cust_menu_div">        
+</div>    
+<!-- end include menu ******************* -->
